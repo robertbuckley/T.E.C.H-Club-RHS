@@ -1,0 +1,12 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:drawable="@color/unimposinggray"/>
+
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/tiger"/>
+    </item>
+
+</layer-list>

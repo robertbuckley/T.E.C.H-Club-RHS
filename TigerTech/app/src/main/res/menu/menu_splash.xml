@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".Splash">
+    <item android:id="@+id/request" android:title="Request a creation"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/information" android:title="Information"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/mission" android:title="Mission"
+        android:orderInCategory="100" app:showAsAction="never" />
+</menu>
