@@ -1,6 +1,7 @@
 package buckley.robert.tigertech;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
@@ -8,6 +9,9 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -55,17 +59,19 @@ public class Gallery extends AppCompatActivity {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 num++;
+                urls.clear();
                 Project current = dataSnapshot.getValue(Project.class);
-                currentUrl = current.getUrl();
-                if(currentUrl.contains("http")) {
-                    urls.add(currentUrl);
-                }
-                else{
-                    urls.add("http://" + currentUrl);
-                }
                 projects.add(current);
+                Collections.sort(projects);
                 Collections.reverse(projects);
-                Collections.reverse(urls);
+                for(int i = 0; i < projects.size(); ++i) {
+                    currentUrl = projects.get(i).getUrl();
+                    if (currentUrl.contains("http")) {
+                        urls.add(currentUrl);
+                    } else {
+                        urls.add("http://" + currentUrl);
+                    }
+                }
                 listView.setAdapter(new ImageListAdapter(Gallery.this, urls.toArray(new String[urls.size()])));
             }
 
@@ -99,5 +105,37 @@ public class Gallery extends AppCompatActivity {
             }
         });
     }
-
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_splash, menu);
+        return true;
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.request:
+                final Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+                emailIntent.setType("plain/text");
+                emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"robertbuckley@ridgefieldps.net"});
+                emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Tiger Tech Creation Request");
+                Gallery.this.startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+                break;
+            case R.id.information:
+                AlertDialog ad = new AlertDialog.Builder(Gallery.this).setMessage(R.string.lorum).setTitle("Information").setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                }).create();
+                ad.show();
+                break;
+            case R.id.mission:
+                AlertDialog ad0 = new AlertDialog.Builder(Gallery.this).setMessage(R.string.lorum).setTitle("Mission").setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                }).create();
+                ad0.show();
+                break;
+        }
+        return true;
+    }
 }

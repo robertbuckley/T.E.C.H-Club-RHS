@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         gallery = (Button)findViewById(R.id.gallery);
         research =(Button)findViewById(R.id.research);
         ArrayAdapter<String> adapter =
-                new PostListAdapter(this, handler.getTitles().toArray(new String[handler.getTitles().size()]));
+                new PostListAdapter(this, handler.getTitles().toArray(new String[handler.getTitles().size()]), handler.getPosts());
         postView.setAdapter(adapter);
         postView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

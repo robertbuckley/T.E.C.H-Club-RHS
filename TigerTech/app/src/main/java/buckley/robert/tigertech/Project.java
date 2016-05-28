@@ -1,16 +1,20 @@
 package buckley.robert.tigertech;
 
+import java.util.Date;
+
 /**
  * Created by Robert on 5/13/2016.
  */
-public class Project {
+public class Project implements Comparable<Project>{
     String name;
     String description;
     String url;
-    public Project(String name, String description, String url){
+    Date date;
+    public Project(String name, String description, String url, Date date){
         this.name = name;
         this.description = description;
         this.url = url;
+        this.date = date;
     }
     public Project(){
 
@@ -37,5 +41,15 @@ public class Project {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+    public Date getDate(){
+        return date;
+    }
+    public void setDate(Date date){
+        this.date = date;
+    }
+    @Override
+    public int compareTo(Project another) {
+        return date.compareTo(another.getDate());
     }
 }

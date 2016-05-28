@@ -33,14 +33,13 @@ public class FireBaseHandler  {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 posts.add(dataSnapshot.getValue(Post.class));
                 titles.clear();
-                //titles.add(dataSnapshot.getValue(Post.class).getTitle() + "\n" + "\"" +dataSnapshot.getValue(Post.class).getPreview() + "\""+ ". . .");
                 Collections.sort(posts);
                 Collections.reverse(posts);
                 for(Post p: posts){
                     titles.add(p.getTitle() + "\n" + "\"" +p.getPreview() + "\""+ ". . .");
                 }
                 ArrayAdapter<String> adapter =
-                        new PostListAdapter(context, titles.toArray(new String[titles.size()]));
+                        new PostListAdapter(context, titles.toArray(new String[titles.size()]), posts);
                 MainActivity.postView.setAdapter(adapter);
             }
 

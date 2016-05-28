@@ -10,6 +10,7 @@ public class Post implements Comparable<Post> {
     String post;
     Date date;
     String preview;
+    final static String[] MONTHS = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
     public Post(String title, String post, Date date) {
         this.title = title;
         this.post = post;

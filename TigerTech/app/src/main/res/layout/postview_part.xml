@@ -1,12 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <TextView
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    >
+    <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:textColor="@color/lightorange"
+        android:textStyle="bold"
+        android:textSize="60dp"
+        android:paddingRight="10dp"
+        android:text="7"
+        android:id="@+id/datetxt" />
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/lightorange"
+        android:textStyle="bold"
+        android:textSize="20dp"
+            android:textAllCaps="true"
+            android:paddingLeft="10dp"
+        android:text="May"
+        android:id="@+id/monthtxt" />
+
+    </LinearLayout>
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
+        android:paddingTop="20dp"
         android:id="@+id/nametxt"
-        android:textColor="@color/white"
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"
-        android:background="@color/lightorange"/>
+        />
+</LinearLayout>
