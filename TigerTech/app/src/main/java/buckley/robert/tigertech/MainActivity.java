@@ -21,7 +21,7 @@ import com.firebase.client.Firebase;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseClass {
     FireBaseHandler handler;
     Button research, gallery;
     public static ListView postView;
@@ -65,32 +65,5 @@ public class MainActivity extends AppCompatActivity {
         inflater.inflate(R.menu.menu_splash, menu);
         return true;
     }
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.request:
-                final Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
-                emailIntent.setType("plain/text");
-                emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"robertbuckley@ridgefieldps.net"});
-                emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Tiger Tech Creation Request");
-                MainActivity.this.startActivity(Intent.createChooser(emailIntent, "Send mail..."));
-                break;
-            case R.id.information:
-                AlertDialog ad = new AlertDialog.Builder(MainActivity.this).setMessage(R.string.information).setTitle("Information").setPositiveButton("Okay", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                }).create();
-                ad.show();
-                break;
-            case R.id.mission:
-                AlertDialog ad0 = new AlertDialog.Builder(MainActivity.this).setMessage(R.string.mission).setTitle("Mission").setPositiveButton("Okay", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                }).create();
-                ad0.show();
-                break;
-        }
-        return true;
-    }
+
 }

@@ -25,7 +25,7 @@ import com.firebase.client.FirebaseError;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Research extends AppCompatActivity {
+public class Research extends BaseClass {
     ListView thumbnails;
     Firebase fire;
     ArrayList<String> urls;
@@ -91,38 +91,5 @@ public class Research extends AppCompatActivity {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(trueUrls.get(position))));
             }
         });
-    }
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_splash, menu);
-        return true;
-    }
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.request:
-                final Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
-                emailIntent.setType("plain/text");
-                emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"robertbuckley@ridgefieldps.net"});
-                emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Tiger Tech Creation Request");
-                Research.this.startActivity(Intent.createChooser(emailIntent, "Send mail..."));
-                break;
-            case R.id.information:
-                AlertDialog ad = new AlertDialog.Builder(Research.this).setMessage(R.string.information).setTitle("Information").setPositiveButton("Okay", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                }).create();
-                ad.show();
-                break;
-            case R.id.mission:
-                AlertDialog ad0 = new AlertDialog.Builder(Research.this).setMessage(R.string.mission).setTitle("Mission").setPositiveButton("Okay", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                }).create();
-                ad0.show();
-                break;
-        }
-        return true;
     }
 }

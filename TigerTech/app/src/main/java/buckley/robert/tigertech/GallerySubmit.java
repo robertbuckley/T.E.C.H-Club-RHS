@@ -19,7 +19,7 @@ import com.firebase.client.Firebase;
 import java.util.Calendar;
 import java.util.Date;
 
-public class GallerySubmit extends AppCompatActivity {
+public class GallerySubmit extends BaseClass {
     EditText name, description, url;
     Button submit;
     @Override
@@ -51,38 +51,5 @@ public class GallerySubmit extends AppCompatActivity {
             e.printStackTrace();
             Toast.makeText(GallerySubmit.this,"Could not submit", Toast.LENGTH_LONG).show();
         }
-    }
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_splash, menu);
-        return true;
-    }
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.request:
-                final Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
-                emailIntent.setType("plain/text");
-                emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"robertbuckley@ridgefieldps.net"});
-                emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Tiger Tech Creation Request");
-                GallerySubmit.this.startActivity(Intent.createChooser(emailIntent, "Send mail..."));
-                break;
-            case R.id.information:
-                AlertDialog ad = new AlertDialog.Builder(GallerySubmit.this).setMessage(R.string.information).setTitle("Information").setPositiveButton("Okay", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                }).create();
-                ad.show();
-                break;
-            case R.id.mission:
-                AlertDialog ad0 = new AlertDialog.Builder(GallerySubmit.this).setMessage(R.string.mission).setTitle("Mission").setPositiveButton("Okay", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                }).create();
-                ad0.show();
-                break;
-        }
-        return true;
     }
 }
