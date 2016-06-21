@@ -27,6 +27,7 @@ public class ResearchSubmit extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_research_submit);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setLogo(R.mipmap.ic_launcher);
         setSupportActionBar(toolbar);
         initialize();
     }
@@ -62,7 +63,7 @@ public class ResearchSubmit extends AppCompatActivity {
                 ResearchSubmit.this.startActivity(Intent.createChooser(emailIntent, "Send mail..."));
                 break;
             case R.id.information:
-                AlertDialog ad = new AlertDialog.Builder(ResearchSubmit.this).setMessage(R.string.lorum).setTitle("Information").setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                AlertDialog ad = new AlertDialog.Builder(ResearchSubmit.this).setMessage(R.string.information).setTitle("Information").setPositiveButton("Okay", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
                     }
@@ -70,7 +71,7 @@ public class ResearchSubmit extends AppCompatActivity {
                 ad.show();
                 break;
             case R.id.mission:
-                AlertDialog ad0 = new AlertDialog.Builder(ResearchSubmit.this).setMessage(R.string.lorum).setTitle("Mission").setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                AlertDialog ad0 = new AlertDialog.Builder(ResearchSubmit.this).setMessage(R.string.mission).setTitle("Mission").setPositiveButton("Okay", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
                     }

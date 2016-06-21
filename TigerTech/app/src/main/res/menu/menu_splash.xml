@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" tools:context=".Splash">
-    <item android:id="@+id/request" android:title="Request a creation"
+    <item android:id="@+id/request" android:title="Request a creation/Contact"
         android:orderInCategory="100" app:showAsAction="never" />
     <item android:id="@+id/information" android:title="Information"
         android:orderInCategory="100" app:showAsAction="never" />

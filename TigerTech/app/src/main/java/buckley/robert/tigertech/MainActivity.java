@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setLogo(R.mipmap.ic_launcher);
         setSupportActionBar(toolbar);
         initialize();
     }
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.startActivity(Intent.createChooser(emailIntent, "Send mail..."));
                 break;
             case R.id.information:
-                AlertDialog ad = new AlertDialog.Builder(MainActivity.this).setMessage(R.string.lorum).setTitle("Information").setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                AlertDialog ad = new AlertDialog.Builder(MainActivity.this).setMessage(R.string.information).setTitle("Information").setPositiveButton("Okay", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
                     }
@@ -82,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 ad.show();
                 break;
             case R.id.mission:
-                AlertDialog ad0 = new AlertDialog.Builder(MainActivity.this).setMessage(R.string.lorum).setTitle("Mission").setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                AlertDialog ad0 = new AlertDialog.Builder(MainActivity.this).setMessage(R.string.mission).setTitle("Mission").setPositiveButton("Okay", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
                     }

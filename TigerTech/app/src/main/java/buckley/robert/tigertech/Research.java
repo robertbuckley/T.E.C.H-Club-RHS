@@ -35,6 +35,7 @@ public class Research extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_research);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setLogo(R.mipmap.ic_launcher);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab1);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -106,7 +107,7 @@ public class Research extends AppCompatActivity {
                 Research.this.startActivity(Intent.createChooser(emailIntent, "Send mail..."));
                 break;
             case R.id.information:
-                AlertDialog ad = new AlertDialog.Builder(Research.this).setMessage(R.string.lorum).setTitle("Information").setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                AlertDialog ad = new AlertDialog.Builder(Research.this).setMessage(R.string.information).setTitle("Information").setPositiveButton("Okay", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
                     }
@@ -114,7 +115,7 @@ public class Research extends AppCompatActivity {
                 ad.show();
                 break;
             case R.id.mission:
-                AlertDialog ad0 = new AlertDialog.Builder(Research.this).setMessage(R.string.lorum).setTitle("Mission").setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                AlertDialog ad0 = new AlertDialog.Builder(Research.this).setMessage(R.string.mission).setTitle("Mission").setPositiveButton("Okay", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
                     }
