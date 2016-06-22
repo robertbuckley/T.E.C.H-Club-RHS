@@ -62,10 +62,11 @@ app:layout_behavior="@string/appbar_scrolling_view_behavior"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SUBMIT"
-            android:textColor="@color/colorPrimary"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
             android:id="@+id/submit"
             android:onClick="submitted"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="right" />
     </LinearLayout>
 </ScrollView>
 </LinearLayout>

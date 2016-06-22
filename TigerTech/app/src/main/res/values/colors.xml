@@ -7,4 +7,5 @@
     <color name ="white">#f8f8ff</color>
     <color name = "lightorange">#ACFF5722</color>
     <color name = "gray">#ACededed</color>
+    <color name = "darkgray">#212121</color>
 </resources>

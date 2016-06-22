@@ -9,6 +9,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -16,6 +17,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
@@ -50,6 +52,7 @@ public class Gallery extends BaseClass {
             }
         });
     }
+
     public void initialize(){
         setTitle(R.string.app_name);
         listView = (ListView) findViewById(R.id.galleryView);
@@ -96,11 +99,26 @@ public class Gallery extends BaseClass {
 
             }
         });
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                AlertDialog l = new AlertDialog.Builder(Gallery.this)
-                        .setMessage("Name: " + projects.get(position).getName() + "\n" + "Description: " + projects.get(position).getDescription()).setTitle("")
-                        .create();
+                AlertDialog.Builder l = new AlertDialog.Builder(Gallery.this);
+                LayoutInflater factory = LayoutInflater.from(Gallery.this);
+                View v = factory.inflate(R.layout.dialog, null);
+                TextView description = (TextView)v.findViewById(R.id.description);
+                description.setText(projects.get(position).getDescription());
+                ImageView image = (ImageView)v.findViewById(R.id.galleryimage);
+                Picasso.with(Gallery.this).load(projects.get(position).getUrl()).resize(1000,0).into(image);
+                l.setView(v);
+                l.setTitle(projects.get(position).getName());
+                l.setCancelable(false);
+                l.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                l.create();
                 l.show();
                 System.out.println(position);
             }

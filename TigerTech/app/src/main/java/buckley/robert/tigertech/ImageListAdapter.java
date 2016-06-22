@@ -27,7 +27,7 @@ public class ImageListAdapter extends ArrayAdapter {
         if (null == convertView) {
             convertView = inflater.inflate(R.layout.listview_part, parent, false);
         }
-        Picasso.with(context).load(imageUrls[position]).resize(800,800).centerInside().into((ImageView)convertView);
+        Picasso.with(context).load(imageUrls[position]).fit().centerCrop().into((ImageView) convertView);
         System.out.println("loaded");
         return convertView;
     }
