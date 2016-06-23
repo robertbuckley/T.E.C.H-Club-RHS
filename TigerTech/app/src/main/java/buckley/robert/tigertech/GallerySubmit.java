@@ -40,12 +40,17 @@ public class GallerySubmit extends BaseClass {
     }
     public void submitted(View view){
         try {
-            Calendar c = Calendar.getInstance();
-            Project project = new Project(name.getText().toString(), description.getText().toString(), url.getText().toString(), c.getTime());
-            Firebase f = new Firebase("https://tigertechgallery.firebaseio.com/");
-            f.push().setValue(project);
-            Toast.makeText(GallerySubmit.this, "Thank you!", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(this, Gallery.class));
+            if(url.getText().toString().contains(".jpg") || (url.getText().toString().contains(".png"))){
+                Calendar c = Calendar.getInstance();
+                Project project = new Project(name.getText().toString(), description.getText().toString(), url.getText().toString(), c.getTime());
+                Firebase f = new Firebase("https://tigertechgallery.firebaseio.com/");
+                f.push().setValue(project);
+                Toast.makeText(GallerySubmit.this, "Thank you!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, Gallery.class));
+            }
+            else {
+                Toast.makeText(GallerySubmit.this, "Invalid URL", Toast.LENGTH_LONG).show();
+            }
         }
         catch(Exception e){
             e.printStackTrace();

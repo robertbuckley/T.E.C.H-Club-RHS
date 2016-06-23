@@ -108,7 +108,7 @@ public class Gallery extends BaseClass {
                 TextView description = (TextView)v.findViewById(R.id.description);
                 description.setText(projects.get(position).getDescription());
                 ImageView image = (ImageView)v.findViewById(R.id.galleryimage);
-                Picasso.with(Gallery.this).load(projects.get(position).getUrl()).resize(1000,0).into(image);
+                Picasso.with(Gallery.this).load(urls.get(position)).resize(1000,0).into(image);
                 l.setView(v);
                 l.setTitle(projects.get(position).getName());
                 l.setCancelable(false);
